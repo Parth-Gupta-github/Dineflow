@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#eef8f7"/>
+  <path d="M310 115h180l-24 280H334z" fill="#d8eef3" stroke="#6b8c94" stroke-width="8"/>
+  <path d="M330 220h140l-12 154H342z" fill="#7a4d31"/>
+  <path d="M334 176h132l-6 45H340z" fill="#f2efe5"/>
+  <rect x="355" y="88" width="90" height="42" rx="12" fill="#f4fbff" stroke="#6b8c94" stroke-width="7"/>
+  <path d="M463 80c42 58 50 120 25 185" fill="none" stroke="#42362d" stroke-width="10" stroke-linecap="round"/>
+  <text x="400" y="470" text-anchor="middle" font-family="Arial" font-size="44" font-weight="700" fill="#2b211d">Cold Coffee</text>
+</svg>

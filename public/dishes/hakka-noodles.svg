@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#fff3df"/>
+  <ellipse cx="400" cy="318" rx="230" ry="92" fill="#e7eef2"/>
+  <g fill="none" stroke="#d79a38" stroke-width="15" stroke-linecap="round">
+    <path d="M240 292c68-44 137 45 204 2s111-36 172 1"/>
+    <path d="M260 330c74-38 120 28 198-4 65-27 111-19 156 14"/>
+    <path d="M297 254c69 29 131 17 194-12 43-20 78-13 111 18"/>
+  </g>
+  <g fill="#428c4c">
+    <rect x="300" y="280" width="56" height="15" rx="7"/>
+    <rect x="502" y="315" width="58" height="15" rx="7"/>
+  </g>
+  <g fill="#d84d39">
+    <rect x="385" y="240" width="45" height="14" rx="7"/>
+    <rect x="438" y="340" width="47" height="14" rx="7"/>
+  </g>
+  <text x="400" y="470" text-anchor="middle" font-family="Arial" font-size="44" font-weight="700" fill="#2b211d">Hakka Noodles</text>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#fff7e6"/>
+  <circle cx="400" cy="275" r="170" fill="#d9903f"/>
+  <circle cx="400" cy="275" r="143" fill="#f5cf72"/>
+  <g fill="#d34332">
+    <circle cx="345" cy="225" r="28"/>
+    <circle cx="455" cy="245" r="30"/>
+    <circle cx="392" cy="334" r="28"/>
+    <circle cx="492" cy="338" r="23"/>
+    <circle cx="302" cy="317" r="22"/>
+  </g>
+  <g fill="#ffffff">
+    <circle cx="397" cy="272" r="24"/>
+    <circle cx="333" cy="365" r="18"/>
+    <circle cx="480" cy="298" r="18"/>
+  </g>
+  <g fill="#3f8f4c">
+    <path d="M390 194l23 12-24 13z"/>
+    <path d="M519 264l21 10-22 13z"/>
+    <path d="M345 286l21 13-24 10z"/>
+  </g>
+  <text x="400" y="470" text-anchor="middle" font-family="Arial" font-size="44" font-weight="700" fill="#2b211d">Margherita Pizza</text>
+</svg>

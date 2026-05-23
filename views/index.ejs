@@ -4,21 +4,85 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
-    <title>Registration</title>
+    <title>DineFlow Customer Entry</title>
   </head>
   <body>
-    <div class="container">
-      <div class="sign-in">
-        <form method="post" action="/home">
-          <h1>Register Here</h1>
-          <input type="text" name="user" placeholder="Name" required />
-          <input type="text" name="email" placeholder="Email" required />
-          <input type="text" name="phonenumber" placeholder="Mobile Number" required/>
-          <input type="number" name="table" placeholder="Table Number" required />
-          <button type="submit">Register</button>
-        </form>
+    <header class="entry-topbar">
+      <a class="brand" href="/">
+        <img src="logo.png" alt="DineFlow logo" />
+        <span>DineFlow</span>
+      </a>
+      <div class="entry-tabs">
+        <a class="active" href="/">Customer Login</a>
+        <a href="/menu">Browse Menu</a>
+        <a href="/reviews">Reviews</a>
+        <a href="/login">Staff Login</a>
       </div>
-    </div>
-    <script src="script.js"></script>
+    </header>
+
+    <main class="entry-layout">
+      <section class="welcome-panel">
+        <p class="eyebrow">Restaurant table access</p>
+        <h1>Book your table session and start ordering.</h1>
+        <p class="lead">Register once at the table, browse the live menu, add dishes to cart, and send your order straight to the kitchen.</p>
+
+        <div class="table-strip">
+          <div>
+            <strong class="step-number">01</strong>
+            <span>Register table</span>
+          </div>
+          <div>
+            <strong class="step-number">02</strong>
+            <span>Choose dishes</span>
+          </div>
+          <div>
+            <strong class="step-number">03</strong>
+            <span>Place order</span>
+          </div>
+        </div>
+        <div class="guest-links">
+          <a href="/menu">View Full Menu</a>
+          <a href="/reviews">Contact & Reviews</a>
+          <a href="/about">About DineFlow</a>
+        </div>
+      </section>
+
+      <section class="register-card">
+        <div class="card-media"></div>
+        <div class="card-body">
+          <p class="form-label">Customer entry</p>
+          <h2>Register Here</h2>
+          <form method="post" action="/home">
+            <label>
+              Name
+              <input type="text" name="user" placeholder="Your name" required />
+            </label>
+            <label>
+              Email
+              <input type="email" name="email" placeholder="you@example.com" required />
+            </label>
+            <label>
+              Mobile Number
+              <input type="text" name="phonenumber" placeholder="10 digit mobile number" required/>
+            </label>
+            <label>
+              Table Number
+              <input type="number" name="table" placeholder="1 to 5" min="1" max="5" required />
+            </label>
+            <button type="submit">Start Ordering</button>
+          </form>
+
+          <div class="staff-entry">
+            <p>Restaurant staff?</p>
+            <a href="/login">Open Kitchen / Payment Login</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div>&copy; 2025 DineFlow. All Rights Reserved.</div>
+      <div>Created by- Parth Gupta</div>
+    </footer>
   </body>
 </html>

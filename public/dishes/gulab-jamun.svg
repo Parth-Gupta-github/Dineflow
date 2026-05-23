@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#fff0e4"/>
+  <ellipse cx="400" cy="315" rx="220" ry="95" fill="#f0f3ee"/>
+  <ellipse cx="400" cy="316" rx="155" ry="66" fill="#d99047"/>
+  <g fill="#713516">
+    <circle cx="335" cy="295" r="46"/>
+    <circle cx="418" cy="310" r="48"/>
+    <circle cx="493" cy="292" r="43"/>
+  </g>
+  <g fill="#f6d480">
+    <path d="M329 253l12 29 31 2-24 19 7 31-26-17-27 16 8-30-24-20 31-1z"/>
+    <path d="M474 250l10 24 26 2-20 16 6 25-22-14-23 13 7-25-20-16 26-1z"/>
+  </g>
+  <text x="400" y="470" text-anchor="middle" font-family="Arial" font-size="44" font-weight="700" fill="#2b211d">Gulab Jamun</text>
+</svg>

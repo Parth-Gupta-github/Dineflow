@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu.css">
+    <title>Kitchen</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="logo.png" alt="Logo">
+            <a href="/">Customer Entry</a>
+            <a href="/payment">Payment</a>
+            <a href="/login">Staff</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Kitchen Orders</h1>
+        <section>
+            <% if (!orders || orders.length === 0) { %>
+                <h2>No orders yet</h2>
+            <% } %>
+            <% for (let i = 0; i < orders.length; i++) { %>
+                <div class="menu-item counter-card">
+                    <img src="/bg.webp" alt="Kitchen order">
+                    <h3>Order #<span class="order-number"><%= orders[i].order_id %></span></h3>
+                    <% if (orders[i].tablenum) { %>
+                        <p>Table <span class="table-number"><%= orders[i].tablenum %></span></p>
+                    <% } %>
+                    <% if (orders[i].dishes.length === 0) { %>
+                        <p>No dishes found.</p>
+                    <% } %>
+                    <% for (let j = 0; j < orders[i].dishes.length; j++) { %>
+                        <p><strong class="quantity-number"><%= orders[i].dishes[j].quantity %>x</strong> <%= orders[i].dishes[j].name %></p>
+                    <% } %>
+                    <span>
+                        <h4>Status: <%= orders[i].order_status == 1 ? 'Placed' : 'Cart' %></h4>
+                    </span>
+                </div>
+            <% } %>
+        </section>
+    </main>
+
+    <footer>
+        <div>&copy; 2025 DineFlow. All Rights Reserved.</div>
+        <div>Created by- Parth Gupta</div>
+    </footer>
+</body>
+</html>

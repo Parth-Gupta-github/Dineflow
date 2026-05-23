@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu.css">
+    <title>Cart</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="logo.png" alt="Logo" style="height: 40px;">
+            <a href="/home">Home</a>
+            <a href="/menu">Menu</a>
+            <a href="/cart">Cart</a>
+            <a href="/reviews">Reviews</a>
+            <a href="/about">About</a>
+            <a href="/login">Staff</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Your Cart</h1>
+        <section id="main-course">
+            <% let hasItems = false; %>
+            <% for (let i = 0; i < dish.length; i++) { %>
+                <% if (dishMap[dish[i].id]) { hasItems = true; %>
+                    <div class="menu-item">
+                        <img src="<%= dish[i].dishimage ? `data:${dish[i].mimetype || 'image/jpeg'};base64,${Buffer.from(dish[i].dishimage).toString('base64')}` : (dish[i].image_url || '/bg.webp') %>" alt="<%= dish[i].dishname %>">
+                        <h3><%= dish[i].dishname %></h3>
+                        <p>Quantity: <span class="quantity-number"><%= dishMap[dish[i].id] %></span></p>
+                        <span class="menu-card-footer">
+                            <h4 class="money"><span class="currency-symbol">&#8377;</span><span><%= dish[i].dishamount * dishMap[dish[i].id] %></span></h4>
+                        </span>
+                    </div>
+                <% } %>
+            <% } %>
+            <% if (!hasItems) { %>
+                <h2>Your cart is empty</h2>
+            <% } %>
+        </section>
+
+        <div class="cart-actions">
+        <% if (hasItems) { %>
+            <form action="/place-order?_method=PATCH" method="POST">
+                <button type="submit">Place Order</button>
+            </form>
+        <% } %>
+            <form action="/clear-table?_method=PATCH" method="POST">
+                <button type="submit" class="danger-button">Clear Table</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div>&copy; 2025 DineFlow. All Rights Reserved.</div>
+        <div>Created by- Parth Gupta</div>
+    </footer>
+</body>
+</html>

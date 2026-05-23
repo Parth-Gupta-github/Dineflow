@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#fff5dc"/>
+  <ellipse cx="400" cy="300" rx="240" ry="105" fill="#e8eef0"/>
+  <ellipse cx="400" cy="265" rx="205" ry="118" fill="#f5c76b"/>
+  <g stroke="#fff7d9" stroke-width="9" stroke-linecap="round">
+    <path d="M250 250c70-34 158-45 292-18"/>
+    <path d="M276 305c92-42 184-42 296 0"/>
+    <path d="M312 215c74 8 140 28 196 58"/>
+  </g>
+  <g fill="#428c4c">
+    <circle cx="303" cy="278" r="15"/>
+    <circle cx="508" cy="253" r="14"/>
+    <circle cx="437" cy="335" r="12"/>
+  </g>
+  <g fill="#c54b35">
+    <circle cx="362" cy="238" r="12"/>
+    <circle cx="541" cy="303" r="11"/>
+  </g>
+  <text x="400" y="470" text-anchor="middle" font-family="Arial" font-size="44" font-weight="700" fill="#2b211d">Veg Biryani</text>
+</svg>

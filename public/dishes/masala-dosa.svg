@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#fff7e8"/>
+  <ellipse cx="400" cy="315" rx="255" ry="95" fill="#edf2ef"/>
+  <path d="M184 288c134-98 302-123 437-62 38 18 36 76-4 91-129 51-289 35-431 1-19-5-20-18-2-30z" fill="#d68b35"/>
+  <path d="M248 279c106-54 236-74 344-36" fill="none" stroke="#f3c16a" stroke-width="18" stroke-linecap="round"/>
+  <circle cx="595" cy="340" r="42" fill="#f5efe5"/>
+  <circle cx="596" cy="340" r="28" fill="#d96b43"/>
+  <circle cx="220" cy="345" r="38" fill="#f5efe5"/>
+  <circle cx="220" cy="345" r="26" fill="#5e9f58"/>
+  <text x="400" y="470" text-anchor="middle" font-family="Arial" font-size="44" font-weight="700" fill="#2b211d">Masala Dosa</text>
+</svg>

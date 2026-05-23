@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu.css">
+    <title>Contact & Reviews</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="logo.png" alt="Logo" style="height: 40px;">
+            <a href="/home">Home</a>
+            <a href="/menu">Menu</a>
+            <a href="/cart">Cart</a>
+            <a href="/reviews">Reviews</a>
+            <a href="/about">About</a>
+            <a href="/login">Staff</a>
+        </nav>
+    </header>
+
+    <main class="review-page">
+        <section class="contact-hero">
+            <p class="review-eyebrow">Contact Us</p>
+            <h1>Let us help.</h1>
+            <p>Looking for more information about our services? Contact us today, and our dedicated team will get back to you as quickly as possible.</p>
+        </section>
+
+        <section class="contact-band">
+            <div>
+                <h3>Address</h3>
+                <strong>SGSITS</strong>
+                <p><span class="address-number">23</span> Sir M. Visvesvaraya Marg<br>Indore, Madhya Pradesh <span class="address-number">452003</span></p>
+            </div>
+            <div>
+                <h3>Phone</h3>
+                <p>Parth Gupta: <span class="phone-number">8989247785</span></p>
+            </div>
+        </section>
+
+        <section class="review-layout">
+            <div class="review-form-card">
+                <h2>Leave a Review</h2>
+                <form action="/reviews" method="POST" class="review-form">
+                    <input type="text" name="username" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <input type="text" name="phonenumber" placeholder="Your Mobile Number" required>
+                    <textarea name="feedback" placeholder="Your feedback..." required></textarea>
+                    <button type="submit">Submit Review</button>
+                </form>
+            </div>
+
+            <div class="review-list">
+                <h2>Recent Reviews</h2>
+                <% if (!reviews || reviews.length === 0) { %>
+                    <p class="empty-review">No reviews yet. Be the first one to share your experience.</p>
+                <% } %>
+                <% for (let i = 0; reviews && i < reviews.length; i++) { %>
+                    <div class="review-card">
+                        <strong><%= reviews[i].username %></strong>
+                        <p><%= reviews[i].feedback %></p>
+                    </div>
+                <% } %>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>&copy; 2025 DineFlow. All Rights Reserved.</div>
+        <div>Created by- Parth Gupta</div>
+    </footer>
+</body>
+</html>

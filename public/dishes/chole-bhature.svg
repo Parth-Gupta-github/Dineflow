@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#fff2dd"/>
+  <ellipse cx="400" cy="312" rx="245" ry="100" fill="#f0f3ee"/>
+  <circle cx="295" cy="260" r="95" fill="#f3d796"/>
+  <circle cx="505" cy="260" r="95" fill="#efd189"/>
+  <ellipse cx="400" cy="325" rx="118" ry="74" fill="#8f4b2c"/>
+  <g fill="#c98249">
+    <circle cx="362" cy="306" r="14"/>
+    <circle cx="424" cy="320" r="13"/>
+    <circle cx="398" cy="350" r="12"/>
+    <circle cx="454" cy="292" r="11"/>
+  </g>
+  <text x="400" y="470" text-anchor="middle" font-family="Arial" font-size="44" font-weight="700" fill="#2b211d">Chole Bhature</text>
+</svg>

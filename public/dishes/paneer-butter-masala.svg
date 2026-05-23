@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520">
+  <rect width="800" height="520" fill="#fff1df"/>
+  <circle cx="400" cy="275" r="185" fill="#f8faf7"/>
+  <circle cx="400" cy="275" r="150" fill="#c94d2d"/>
+  <circle cx="400" cy="275" r="118" fill="#e36b38"/>
+  <g fill="#fff0bf" stroke="#e7c36a" stroke-width="6">
+    <rect x="312" y="197" width="78" height="54" rx="10"/>
+    <rect x="430" y="220" width="72" height="58" rx="10"/>
+    <rect x="354" y="305" width="86" height="56" rx="10"/>
+  </g>
+  <g fill="#2f8b57">
+    <circle cx="316" cy="298" r="12"/>
+    <circle cx="473" cy="316" r="11"/>
+    <circle cx="412" cy="190" r="10"/>
+  </g>
+  <text x="400" y="470" text-anchor="middle" font-family="Arial" font-size="42" font-weight="700" fill="#2b211d">Paneer Butter Masala</text>
+</svg>

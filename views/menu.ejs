@@ -15,6 +15,7 @@
             <a href="/cart">Cart</a>
             <a href="/reviews">Reviews</a>
             <a href="/about">About</a>
+            <a href="/login">Staff</a>
         </nav>
     </header>
 
@@ -22,15 +23,19 @@
         <section id="main-course">
             <% for(let i=0; i<post.length; i++) { %>
                 <div class="menu-item">
-                    <img src="data:<%= post[i].mimetype %>;base64,<%= post[i].dishimage %>" alt="<%= post[i].dishname %>">
+                    <img src="<%= post[i].dishimage ? `data:${post[i].mimetype || 'image/jpeg'};base64,${post[i].dishimage}` : (post[i].image_url || '/bg.webp') %>" alt="<%= post[i].dishname %>">
                     <h3><%= post[i].dishname %></h3>
                     <p><%= post[i].dishdescription %></p>
-                    <span>
-                        <h4>&#8377; <%= post[i].dishamount %></h4>
-                        <form action="/add-to-cart" method="POST">
-                            <input type="hidden" name="dishId" value="<%= post[i].id %>">
-                            <button type="submit">ADD</button>
-                        </form>
+                    <span class="menu-card-footer">
+                        <h4 class="money"><span class="currency-symbol">&#8377;</span><span><%= post[i].dishamount %></span></h4>
+                        <% if (isCustomerLoggedIn) { %>
+                            <form action="/add-to-cart" method="POST">
+                                <input type="hidden" name="dishId" value="<%= post[i].id %>">
+                                <button type="submit">ADD</button>
+                            </form>
+                        <% } else { %>
+                            <a class="order-link" href="/">Register to Order</a>
+                        <% } %>
                     </span>
                 </div>
             <% } %>
@@ -38,7 +43,8 @@
     </main>
 
     <footer>
-        <div>&copy; 2025 DineFlow | All Rights Reserved</div>
+        <div>&copy; 2025 DineFlow. All Rights Reserved.</div>
+        <div>Created by- Parth Gupta</div>
     </footer>
 </body>
 </html>

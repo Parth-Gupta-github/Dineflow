@@ -6,27 +6,125 @@
     <link rel="stylesheet" href="home.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
-    <title>DineFlow-Smart Restaurant System</title>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <title>DineFlow - Smart Restaurant System</title>
 </head>
 <body>
     <header>
         <nav>
-            <img src="logo.png" style="justify-content: left;">
+            <img src="logo.png" alt="DineFlow logo">
             <a href="/home">Home</a>
             <a href="/menu">Menu</a>
             <a href="/offers">Offers</a>
             <a href="/reviews">Reviews</a>
             <a href="/about">About</a>
+            <a href="/login">Staff</a>
         </nav>
     </header>
+
     <main>
-        <div class="bg"></div>
+        <section class="hero">
+            <div class="hero-copy">
+                <p class="eyebrow">Table ordering made calmer</p>
+                <h1>Serve faster without losing the restaurant feel.</h1>
+                <p>DineFlow connects guests, kitchen teams, and payment counters with a simple digital flow built for busy restaurants.</p>
+                <div class="hero-actions">
+                    <a class="primary-action" href="/menu">Open Menu</a>
+                    <a class="secondary-action" href="/">Register Table</a>
+                </div>
+            </div>
+
+            <div class="hero-panel">
+                <div class="live-strip">
+                    <span class="pulse"></span>
+                    <div>
+                        <strong>Live service board</strong>
+                        <span>Table orders update in one place</span>
+                    </div>
+                </div>
+
+                <div class="order-board">
+                    <div class="ticket">
+                        <strong>Table <span class="table-number">2</span></strong>
+                        <div>
+                            <strong><span class="quantity-number">2x</span> Paneer Butter Masala</strong>
+                            <small>With butter naan and cold coffee</small>
+                        </div>
+                        <span class="badge">Cooking</span>
+                    </div>
+                    <div class="ticket">
+                        <strong>Table <span class="table-number">4</span></strong>
+                        <div>
+                            <strong><span class="quantity-number">1x</span> Masala Dosa</strong>
+                            <small>Ready for pickup</small>
+                        </div>
+                        <span class="badge">Ready</span>
+                    </div>
+                    <div class="ticket">
+                        <strong>Table <span class="table-number">5</span></strong>
+                        <div>
+                            <strong><span class="quantity-number">3x</span> Veg Biryani</strong>
+                            <small>New order received</small>
+                        </div>
+                        <span class="badge">New</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="stats">
+            <div class="stat">
+                <strong class="stat-number">5</strong>
+                <span>Active Tables</span>
+            </div>
+            <div class="stat">
+                <strong class="stat-number">4</strong>
+                <span>Menu Items</span>
+            </div>
+            <div class="stat">
+                <strong class="stat-number">3</strong>
+                <span>Staff Views</span>
+            </div>
+            <div class="stat">
+                <strong class="stat-number">1</strong>
+                <span>Smoother Flow</span>
+            </div>
+        </section>
+
+        <section class="flow">
+            <div class="section-title">
+                <h2>A dining loop that is easy to follow.</h2>
+                <p>Guests register a table, browse the menu, add items, place the order, and the team can track it from kitchen to payment.</p>
+            </div>
+
+            <div class="flow-grid">
+                <div class="flow-card">
+                    <span class="step-number">01</span>
+                    <h3>Register Table</h3>
+                    <p>Guests enter their details and choose an available table.</p>
+                </div>
+                <div class="flow-card">
+                    <span class="step-number">02</span>
+                    <h3>Browse Menu</h3>
+                    <p>Clear dish cards make ordering quick from any browser.</p>
+                </div>
+                <div class="flow-card">
+                    <span class="step-number">03</span>
+                    <h3>Send Order</h3>
+                    <p>Kitchen receives table-wise items and quantities.</p>
+                </div>
+                <div class="flow-card">
+                    <span class="step-number">04</span>
+                    <h3>Close Table</h3>
+                    <p>Payment staff can reset table status after billing.</p>
+                </div>
+            </div>
+        </section>
     </main>
+
     <footer>
-        <div>
-            <h3>&copy; 2025 DineFlow | All Rights Reserved</h3>
-        </div>
+        <div>&copy; 2025 DineFlow. All Rights Reserved.</div>
+        <div>Created by- Parth Gupta</div>
     </footer>
 </body>
 </html>

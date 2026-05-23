@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu.css">
+    <title>Staff Login</title>
+</head>
+<body>
+    <header class="entry-header">
+        <a class="brand-link" href="/">
+            <img src="logo.png" alt="Logo">
+            <span>DineFlow</span>
+        </a>
+        <div class="entry-switcher">
+            <a href="/">Customer Login</a>
+            <a class="active" href="/login">Staff Login</a>
+        </div>
+    </header>
+
+    <main class="staff-page">
+        <section class="staff-shell">
+            <div class="staff-copy">
+                <p class="staff-eyebrow">Staff access</p>
+                <h1>Kitchen and payment counters, without table booking.</h1>
+                <p class="staff-lead">Use this staff entry point to manage live orders and table resets separately from the customer flow.</p>
+
+                <div class="role-grid">
+                    <div class="role-card">
+                        <span class="step-number">01</span>
+                        <h3>Kitchen</h3>
+                        <p>View table-wise orders and item quantities as soon as customers place them.</p>
+                    </div>
+                    <div class="role-card">
+                        <span class="step-number">02</span>
+                        <h3>Payment</h3>
+                        <p>Check pending tables and reset availability after billing is complete.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="staff-card">
+                <div class="staff-card-image"></div>
+                <div class="staff-card-body">
+                    <h2>Counter Login</h2>
+                    <p>Enter the counter credentials shared with your team.</p>
+                    <form action="/move" method="POST" class="staff-form">
+                        <label>
+                            Email
+                            <input type="email" name="email" placeholder="counter@example.com" required>
+                        </label>
+                        <label>
+                            Password
+                            <input type="password" name="passwd" placeholder="Password" required>
+                        </label>
+                        <button type="submit">Open Counter</button>
+                    </form>
+
+                    <div class="credential-panel">
+                        <h3>Demo Counter Credentials</h3>
+                        <div class="credential-card">
+                            <strong>Kitchen</strong>
+                            <span>Email: <span class="credential-value">kitchen@gmail.com</span></span>
+                            <span>Password: <span class="credential-value">kitchen123</span></span>
+                        </div>
+                        <div class="credential-card">
+                            <strong>Payment</strong>
+                            <span>Email: <span class="credential-value">payment@gmail.com</span></span>
+                            <span>Password: <span class="credential-value">payment123</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div>&copy; 2025 DineFlow. All Rights Reserved.</div>
+        <div>Created by- Parth Gupta</div>
+    </footer>
+</body>
+</html>
