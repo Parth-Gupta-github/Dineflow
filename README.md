@@ -2,6 +2,12 @@
 
 DineFlow is a smart restaurant management web app built to make table ordering, kitchen tracking, payment handling, and customer reviews smoother for restaurants.
 
+## Live Demo
+
+```text
+https://dineflow-theta.vercel.app/
+```
+
 ## Features
 
 - Public homepage, menu, reviews, and about pages
@@ -63,10 +69,16 @@ npm run db:init
 npm start
 ```
 
-App URL:
+Local app URL:
 
 ```text
 http://localhost:8080
+```
+
+Deployed app URL:
+
+```text
+https://dineflow-theta.vercel.app/
 ```
 
 ## App Routes
