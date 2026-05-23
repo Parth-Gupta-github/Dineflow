@@ -319,9 +319,8 @@ app.patch("/reset-table", requireStaffRole("payment"), (req,res) => {
             return res.redirect("/payment");
         }
 
-        const { user_id, tablenum } = orderResult[0];
+        const { tablenum } = orderResult[0];
         const deleteOrderQuery = "DELETE FROM orders WHERE order_id = ?";
-        const deleteUserQuery = "DELETE FROM userdata WHERE id = ?";
         const freeTableQuery = "UPDATE tablestatus SET availability = 0 WHERE tablenumber = ?";
 
         connection.query(deleteOrderQuery, [order_id], (err) => {
@@ -329,18 +328,12 @@ app.patch("/reset-table", requireStaffRole("payment"), (req,res) => {
                 return res.status(500).send("Error clearing order.");
             }
 
-            connection.query(deleteUserQuery, [user_id], (err) => {
+            connection.query(freeTableQuery, [tablenum], (err) => {
                 if (err) {
-                    return res.status(500).send("Error clearing customer registration.");
+                    return res.status(500).send("Error freeing table.");
                 }
 
-                connection.query(freeTableQuery, [tablenum], (err) => {
-                    if (err) {
-                        return res.status(500).send("Error freeing table.");
-                    }
-
-                    res.redirect("/payment");
-                });
+                res.redirect("/payment");
             });
         });
     });
@@ -348,7 +341,6 @@ app.patch("/reset-table", requireStaffRole("payment"), (req,res) => {
 
 app.patch("/reset-all-tables", requireStaffRole("payment"), (req, res) => {
     const deleteOrdersQuery = "DELETE FROM orders";
-    const deleteUsersQuery = "DELETE FROM userdata";
     const freeTablesQuery = "UPDATE tablestatus SET availability = 0";
 
     connection.query(deleteOrdersQuery, (err) => {
@@ -356,18 +348,12 @@ app.patch("/reset-all-tables", requireStaffRole("payment"), (req, res) => {
             return res.status(500).send("Error clearing all orders.");
         }
 
-        connection.query(deleteUsersQuery, (err) => {
+        connection.query(freeTablesQuery, (err) => {
             if (err) {
-                return res.status(500).send("Error clearing all customers.");
+                return res.status(500).send("Error freeing all tables.");
             }
 
-            connection.query(freeTablesQuery, (err) => {
-                if (err) {
-                    return res.status(500).send("Error freeing all tables.");
-                }
-
-                res.redirect("/payment");
-            });
+            res.redirect("/payment");
         });
     });
 });
@@ -392,7 +378,6 @@ app.patch("/clear-table", (req, res) => {
 
         const tableNum = userResult[0].tablenum;
         const deleteOrdersQuery = "DELETE FROM orders WHERE user_id = ?";
-        const deleteUserQuery = "DELETE FROM userdata WHERE id = ?";
         const freeTableQuery = "UPDATE tablestatus SET availability = 0 WHERE tablenumber = ?";
 
         connection.query(deleteOrdersQuery, [userId], (err) => {
@@ -400,18 +385,12 @@ app.patch("/clear-table", (req, res) => {
                 return res.status(500).send("Error clearing your order.");
             }
 
-            connection.query(deleteUserQuery, [userId], (err) => {
+            connection.query(freeTableQuery, [tableNum], (err) => {
                 if (err) {
-                    return res.status(500).send("Error clearing your registration.");
+                    return res.status(500).send("Error freeing your table.");
                 }
 
-                connection.query(freeTableQuery, [tableNum], (err) => {
-                    if (err) {
-                        return res.status(500).send("Error freeing your table.");
-                    }
-
-                    req.session.destroy(() => res.redirect("/"));
-                });
+                req.session.destroy(() => res.redirect("/"));
             });
         });
     });
@@ -421,6 +400,7 @@ app.patch("/clear-table", (req, res) => {
 app.get("/cart", requireCustomerTable, (req,res) => {
     const dishQuery = 'SELECT * FROM dishdata';
     const userId = req.session.userId;
+    const orderPlaced = req.query.ordered === "1";
 
     if (!userId) {
         return connection.query(dishQuery, (err, dishres) => {
@@ -432,7 +412,7 @@ app.get("/cart", requireCustomerTable, (req,res) => {
         });
     }
 
-    let orderQuery=`SELECT dish_ids FROM orders WHERE user_id = ?`; 
+    let orderQuery=`SELECT dish_ids, order_status FROM orders WHERE user_id = ?`; 
     
     connection.query(dishQuery, (err, dishres) => {
         if (err) {
@@ -445,8 +425,10 @@ app.get("/cart", requireCustomerTable, (req,res) => {
             }
 
             let dishMap={};
+            let isOrderPlaced = orderPlaced;
 
             if(orderres.length > 0 && orderres[0].dish_ids){
+                isOrderPlaced = orderPlaced || orderres[0].order_status === 1;
                 let orderItem = orderres[0].dish_ids.split(" ");
                 
                 orderItem.forEach((id) => {
@@ -454,7 +436,7 @@ app.get("/cart", requireCustomerTable, (req,res) => {
                 });
             }
 
-            res.render("cart.ejs",{dish:dishres,dishMap});
+            res.render("cart.ejs",{dish:dishres,dishMap,isOrderPlaced});
         });
     });
 });
@@ -478,6 +460,13 @@ app.post("/home",(req,res) => {
             }
 
             if(result[0].availability === 0){
+                const deleteStaleOrdersQuery = "DELETE FROM orders WHERE tablenum = ?";
+
+                connection.query(deleteStaleOrdersQuery, [table], (err) => {
+                    if (err) {
+                        return res.status(500).send("Error preparing table for registration.");
+                    }
+
                 const insertQuery = 'INSERT INTO userdata (username, email, phonenumber, tablenum) VALUES (?, ?, ?, ?) RETURNING id';
                 connection.query(insertQuery, [user, email, phonenumber, table], (err, insertResult) => {
                     if (err) {
@@ -499,6 +488,7 @@ app.post("/home",(req,res) => {
                         res.render("home.ejs", {userId});
                     });
                 });
+                });
             }
             else{
                 return res.status(400).send("Selected table is already occupied");
@@ -514,13 +504,13 @@ app.post("/home",(req,res) => {
 app.patch("/place-order", requireCustomerTable, (req,res) => {
     let userId=req.session.userId;
 
-    const query = `UPDATE orders SET order_status = '1' WHERE user_id = ?`;
+    const query = `UPDATE orders SET order_status = 1 WHERE user_id = ?`;
 
     connection.query(query, [userId], (err, result) => {
         if (err) {
             return res.status(500).send("Error updating order status.");
         }
-        res.render("home.ejs",{userId});
+        res.redirect("/cart?ordered=1");
     });
 });
 app.listen(port, () =>{

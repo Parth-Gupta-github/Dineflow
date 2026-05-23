@@ -20,9 +20,16 @@
     </header>
 
     <main>
-        <h1>Your Cart</h1>
+        <h1><%= isOrderPlaced ? 'Order Placed' : 'Your Cart' %></h1>
+        <% if (isOrderPlaced) { %>
+            <div class="status-panel">
+                <h2>Your order has been sent to the kitchen.</h2>
+                <p>The kitchen and payment counter can now see your order. Your cart is locked until the table is cleared after billing.</p>
+            </div>
+        <% } %>
         <section id="main-course">
             <% let hasItems = false; %>
+            <% if (!isOrderPlaced) { %>
             <% for (let i = 0; i < dish.length; i++) { %>
                 <% if (dishMap[dish[i].id]) { hasItems = true; %>
                     <div class="menu-item">
@@ -35,13 +42,14 @@
                     </div>
                 <% } %>
             <% } %>
-            <% if (!hasItems) { %>
+            <% } else { hasItems = true; } %>
+            <% if (!hasItems && !isOrderPlaced) { %>
                 <h2>Your cart is empty</h2>
             <% } %>
         </section>
 
         <div class="cart-actions">
-        <% if (hasItems) { %>
+        <% if (hasItems && !isOrderPlaced) { %>
             <form action="/place-order?_method=PATCH" method="POST">
                 <button type="submit">Place Order</button>
             </form>

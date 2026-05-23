@@ -177,13 +177,19 @@ section {
     margin: 0 20px 20px;
 }
 
-span {
+.menu-item > span {
     align-items: center;
     display: flex;
     gap: 16px;
     justify-content: space-between;
     margin: auto 20px 20px;
     min-height: 46px;
+}
+
+.address-number,
+.phone-number {
+    display: inline;
+    margin: 0;
 }
 
 .menu-card-footer {
@@ -278,6 +284,27 @@ button:hover {
     margin-top: 18px;
 }
 
+.status-panel {
+    background: #ecf8f3;
+    border: 1px solid #b9dfcf;
+    border-radius: 8px;
+    margin: 22px auto;
+    max-width: 760px;
+    padding: 24px;
+    text-align: center;
+}
+
+.status-panel h2 {
+    color: #0b756a;
+    margin: 0 0 10px;
+}
+
+.status-panel p {
+    color: #4d5d57;
+    line-height: 1.5;
+    margin: 0;
+}
+
 .cart-actions form {
     margin: 0;
 }
@@ -335,33 +362,46 @@ button:hover {
 
 .contact-band {
     align-items: start;
-    background: #ebeef2;
-    border: 1px solid #e1e4e8;
+    background: #f1eee9;
+    border: 1px solid #dfd2c4;
     border-radius: 8px;
     display: grid;
-    gap: 22px;
+    gap: 40px;
     grid-template-columns: repeat(2, minmax(260px, 1fr));
     margin: 0 auto 46px;
-    max-width: 1280px;
-    padding: 28px clamp(28px, 6vw, 92px);
+    max-width: 1120px;
+    padding: 26px clamp(26px, 4vw, 48px);
 }
 
 .contact-band div {
     display: grid;
-    justify-content: start;
+    justify-content: stretch;
+}
+
+.contact-info-block {
+    align-content: start;
+    background: #fffaf4;
+    border: 1px solid #e2d6ca;
+    border-radius: 8px;
+    gap: 8px;
+    min-height: 126px;
+    padding: 22px;
+    text-align: left;
 }
 
 .contact-band h3 {
     font-family: Arial, sans-serif;
-    font-size: 15px;
-    margin-bottom: 10px;
+    font-size: 14px;
+    letter-spacing: 0.06em;
+    margin-bottom: 6px;
+    text-transform: uppercase;
 }
 
 .contact-band strong,
 .contact-band p {
     color: #171717;
-    font-size: 15px;
-    line-height: 1.45;
+    font-size: 16px;
+    line-height: 1.5;
     margin: 0;
 }
 
@@ -370,8 +410,8 @@ button:hover {
 }
 
 .contact-band div:last-child {
-    justify-self: start;
-    margin-left: clamp(0px, 10vw, 160px);
+    justify-self: stretch;
+    margin-left: 0;
     text-align: left;
 }
 
@@ -581,7 +621,30 @@ button:hover {
 .creator-contact {
     background: #f4ece3;
     border-radius: 8px;
+    display: grid;
+    gap: 16px;
     padding: 22px;
+}
+
+.creator-contact strong {
+    color: #171717;
+    font-family: Arial, sans-serif;
+}
+
+.contact-row {
+    display: grid;
+    gap: 6px;
+}
+
+.contact-row > strong {
+    font-size: 14px;
+}
+
+.contact-row > span,
+.contact-row > p {
+    color: #544b44;
+    line-height: 1.5;
+    margin: 0;
 }
 
 .staff-page {

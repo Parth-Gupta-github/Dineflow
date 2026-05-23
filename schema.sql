@@ -6,14 +6,14 @@ CREATE TABLE IF NOT EXISTS tablestatus (
 CREATE TABLE IF NOT EXISTS userdata (
     id SERIAL PRIMARY KEY,
     username VARCHAR(50) NOT NULL,
-    email VARCHAR(50) UNIQUE NOT NULL,
+    email VARCHAR(50) NOT NULL,
     phonenumber VARCHAR(15) NOT NULL,
-    tablenum INTEGER UNIQUE NOT NULL REFERENCES tablestatus(tablenumber)
+    tablenum INTEGER NOT NULL REFERENCES tablestatus(tablenumber)
 );
 
 ALTER TABLE userdata DROP CONSTRAINT IF EXISTS userdata_username_key;
+ALTER TABLE userdata DROP CONSTRAINT IF EXISTS userdata_email_key;
 ALTER TABLE userdata DROP CONSTRAINT IF EXISTS userdata_tablenum_key;
-ALTER TABLE userdata ADD CONSTRAINT userdata_tablenum_key UNIQUE (tablenum);
 
 CREATE TABLE IF NOT EXISTS dishdata (
     id SERIAL PRIMARY KEY,
@@ -53,7 +53,7 @@ VALUES
 (4, 0),
 (5, 0)
 ON CONFLICT (tablenumber) DO UPDATE
-SET availability = EXCLUDED.availability;
+SET availability = tablestatus.availability;
 
 INSERT INTO dishdata (dishname, dishdescription, image_url, dishamount)
 VALUES

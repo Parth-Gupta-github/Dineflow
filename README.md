@@ -116,10 +116,9 @@ Password: payment123
 - Guests can browse Home, Menu, Reviews, and About without registration.
 - Adding dishes, opening Cart, placing orders, and clearing tables require customer registration.
 - Kitchen and Payment pages require staff login.
-- Customer names can repeat during entry; customer emails remain unique.
-- Each table can have only one active customer registration at a time.
+- Customer names and emails can repeat, so customer visit history can be retained.
 - Kitchen and Payment counters only show placed orders, not in-progress carts.
-- Payment reset clears the order, deletes the active customer registration, and frees the table.
+- Payment reset clears the order and frees the table while keeping customer data.
 - Payment counter also has a **Free All Tables** action for end-of-day cleanup.
 - Menu images are served from `public/dishes`.
 - Reviews are saved in the Supabase `reviews` table.
